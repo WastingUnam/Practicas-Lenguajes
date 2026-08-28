@@ -37,17 +37,17 @@ tokens :-
 
   and                   { \_ -> TokenAnd }
   or                    { \_ -> TokenOr }
-  \*                    { \_ -> TokenProducto }
-  \/                    { \_ -> TokenCociente }
-  expt                  { \_ -> TokenExponente }
-  \<                    { \_ -> TokenMenor }
-  \>                    { \_ -> TokenMayor }
-  \<\=                  { \_ -> TokenMenorIgual }
-  \>\=                  { \_ -> TokenMayorIgual }
-  eq                    { \_ -> TokenIgual }
-  add1                  { \_ -> TokenMasUno }
-  sub1                  { \_ -> TokenMenosUno }
-  zero\?                { \_ -> TokenIgualCero}
+  \*                    { \_ -> TokenMul }
+  \/                    { \_ -> TokenDiv }
+  expt                  { \_ -> TokenExpt }
+  \<                    { \_ -> TokenLT }
+  \>                    { \_ -> TokenGT }
+  \<\=                  { \_ -> TokenLE }
+  \>\=                  { \_ -> TokenGE }
+  eq                    { \_ -> TokenEq }
+  add1                  { \_ -> TokenAdd1 }
+  sub1                  { \_ -> TokenSub1 }
+  zero\?                { \_ -> TokenZeroP }
 
   .                     { \s -> error ("Lexical error: caracter no reconocido = "
                                       ++ show s
