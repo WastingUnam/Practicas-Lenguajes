@@ -34,6 +34,26 @@ import Lexer (Token(..), lexer)
 
 ASA : nat                      { Num $1 }
     | bool                     { Boolean $1 }
+    | '(' "expt" ASA ASA ')'   {Expt $3 $4}
+    | '(' "eq" ASA ASA ')'     {EqP $3 $4}
+    | '(' "not" ASA ')'        {Not $3}
+    | '(' "add1" ASA ')'       {Add1 $3}
+    | '(' "sub1" ASA ')'       {Sub1 $3}
+    | '(' "zero?" ASA ')'      {ZeroP $3}
+    | '(' "and" ASAS ')'       {And $3}
+    | '(' "or" ASAS ')'        {Or $3}
+    | '(' '+' ASAS ')'         {Add $3}
+    | '(' '-' ASAS ')'         {Sub $3}
+    | '(' '*' ASAS ')'         {Mul $3}
+    | '(' '/' ASAS ')'         {Div $3}
+    | '(' '<' ASAS ')'         {Lt $3}
+    | '(' '>' ASAS ')'         {Gt $3}
+    | '(' "<=" ASAS ')'        {Le $3}
+    | '(' ">=" ASAS ')'        {Ge $3}
+
+
+ASAS : ASA ASA     {[$1, $2]}
+     | ASAS ASA    {$1 ++ [$2]}   
 
 -- RETO 2:
 -- Agrega las producciones para:
